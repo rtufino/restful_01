@@ -7,7 +7,7 @@ TAREAS = [
         'descripcion': 'Hacer un ejemplo básico con Flask y RESTful.',
         'hecho': False
     },
-{
+    {
         'id': 2,
         'titulo': 'Aprender Docker',
         'descripcion': 'Entender la tecnología y estudiar un ejemplo.',
@@ -72,6 +72,7 @@ class Tarea(Resource):
         return {"tarea": TAREAS[posicion]}, 200
 
     def delete(self, tarea_id):
+        # $ curl -i -X DELETE http://localhost:5000/api/v1.0/tareas/2
         posicion = obtener_indice_tarea(tarea_id)
         del TAREAS[posicion]
         return {'message': 'OK'}, 201
